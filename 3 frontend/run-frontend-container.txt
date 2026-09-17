@@ -1,0 +1,56 @@
+1 
+nano /opt/mywebsite/nginx.conf
+
+
+
+
+2 
+
+
+
+
+
+server {
+    listen 443 ssl;
+    server_name 192.168.2.146;
+
+    ssl_certificate /etc/ssl/certs/server.cert;
+    ssl_certificate_key /etc/ssl/private/server.key;
+
+    root /usr/share/nginx/html;
+    index index.html;
+
+    location /api/ {
+        proxy_pass https://backend:3443/;
+        proxy_ssl_verify off;
+    }
+
+    location / {
+        try_files $uri /index.html;
+    }
+}
+
+
+
+
+
+
+3 
+
+
+
+
+
+
+
+docker run -d \
+  --name frontend \
+  -v /opt/mywebsite/frontend:/usr/share/nginx/html:ro \
+  -v /opt/mywebsite/nginx.conf:/etc/nginx/conf.d/default.conf \
+  -v /opt/mywebsite/backend/server.cert:/etc/ssl/certs/server.cert:ro \
+  -v /opt/mywebsite/backend/server.key:/etc/ssl/private/server.key:ro \
+  -p 443:443 \
+  --network app-network \
+  nginx:alpine
+
+

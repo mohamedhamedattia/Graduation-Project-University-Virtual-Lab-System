@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d338rnhas8haq.cloudfront.net</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="light.css">
+    <link rel="stylesheet" href="toastify.min.css">
+    <script src="toastify-js.js"></script>
+
+</head>
+<body>
+
+
+<!-- SPLASH SCREEN -->
+<div id="splashScreen" class="splash-screen active">
+    <div class="splash-background">
+        <div class="splash-gradient g1"></div>
+        <div class="splash-gradient g2"></div>
+        <div class="splash-gradient g3"></div>
+    </div>
+    
+    <div class="splash-content">
+        <!-- Animated Logo -->
+        <div class="splash-logo">
+            <div class="logo-circle circle-outer">
+                <div class="logo-circle circle-middle">
+                    <div class="logo-circle circle-inner">
+                        <div class="logo-center">
+                            <span class="logo-icon">💻</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Splash Text -->
+        <div class="splash-text">
+            <h1 class="splash-title">University Virtual Labs</h1>
+            <p class="splash-subtitle">Connecting Education with Technology</p>
+        </div>
+        
+        <!-- Loading Animation - Colorless -->
+        <div class="splash-loader">
+            <div class="loader-container">
+                <div class="loader-bar">
+                    <div class="loader-progress"></div>
+                </div>
+                <div class="loader-percent">0%</div>
+            </div>
+            <p class="loader-status">Loading Systems...</p>
+        </div>
+        
+        <!-- Team Credit - ONLY ON SPLASH SCREEN -->
+        <div class="splash-team">
+            <p class="team-message">
+                <span class="team-badge">⚡</span>
+                Developed by <strong class="team-name">Team Overpower</strong>
+            </p>
+        </div>
+    </div>
+    
+    <!-- Animated Particles -->
+    <div class="splash-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+</div>
+
+
+
+
+
+
+    <!-- COVER PAGE -->
+    <div id="cover" class="page active">
+        <div class="page-content">
+            <h1>University Virtual Labs System <br>for Professors and Students</h1>
+            <p class="subtitle">Under the supervision of Prof. Nessim Mahmoud</p>
+            <button onclick="showPage('login')" class="cover-btn">Enter System</button>
+            
+            <!-- الزر الجديد معدل -->
+            <button onclick="showPage('helper')" class="back-btn" style="margin-top: 20px; padding: 15px 40px; width: auto; display: inline-block;">
+                Help & Guide
+            </button>
+        </div>
+
+        <!-- الجملة المطلوبة في أسفل الغلاف - أصبحت قابلة للضغط -->
+        <div class="footer-note clickable" onclick="showPage('about')">
+           — تم إنشاء المنظومة بواسطة طلاب من كلية الهندسة جامعة طنطا —
+        </div>
+
+        <div class="stars-container"></div>
+    </div>
+
+    <!-- ABOUT TEAM PAGE -->
+    <div id="about" class="page">
+        <div class="page-content">
+            <div class="about-container">
+                <button onclick="showPage('cover')" class="about-back-btn">Start System</button>
+                
+                <div class="about-header">
+                    <h1>About Our Development Team</h1>
+                    <p>Meet the talented engineers behind this innovative virtual lab system</p>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-card">
+                        <div class="icon">👨‍💻</div>
+                        <h2>Development Team</h2>
+                        <p>We are passionate engineering students from Tanta University, dedicated to creating cutting-edge educational solutions.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="icon">🎓</div>
+                        <h2>Faculty & Department</h2>
+                        <p><strong>University:</strong> Tanta University</p>
+                        <p><strong>Faculty:</strong> Faculty of Engineering</p>
+                        <p><strong>Department:</strong> Electronics and Communications Engineering</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="icon">🚀</div>
+                        <h2>Project Vision</h2>
+                        <p>Creating accessible virtual lab environments to bridge the gap between theoretical learning and practical application for all students.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="icon">👨‍🏫</div>
+                        <h2>Supervision</h2>
+                        <p>Under the supervision of <strong>Prof.Nessim Mahmoud</strong></p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="icon">💻</div>
+                        <h2>Technical Stack</h2>
+                        <div class="tech-stack">
+                            <span class="tech-item">Red Hat</span>
+                            <span class="tech-item">Windows</span>
+                            <span class="tech-item">MySQL</span>
+                            <span class="tech-item">Containers</span>
+                            <span class="tech-item">Backend</span>
+                            <span class="tech-item">Frontend</span>
+                            <span class="tech-item">GNS3</span>
+                            <span class="tech-item">Cybersecritytools</span>
+                            <span class="tech-item">Cloud</span>
+                        </div>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="icon">🎯</div>
+                        <h2>Our Mission</h2>
+                        <p>To revolutionize engineering education by providing remote access to laboratory resources and practical learning experiences.</p>
+                    </div>
+                </div>
+
+                <div class="team-footer">
+                    <p class="signature">— Electronics & Communications Engineering Team —</p>
+                    <p class="university">Tanta University, Egypt</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIN PAGE -->
+    <div id="login" class="page">
+        <div class="page-content">
+         <div class="login-back-btn-container">
+                <button onclick="showPage('cover')" class="about-back-btn login-back-btn">
+                    ← Back to Home
+                </button>
+            </div>
+            <div class="dashboard-header">
+                <h1>System Access Portal</h1>
+                <p class="subtitle">Enter your university credentials to access virtual lab systems</p>
+            </div>
+            
+            <div class="card">
+                <input id="studentId" type="text" placeholder="University ID" />
+                <input id="password" type="password" placeholder="Password" />
+                <button onclick="login()" class="primary-btn">Login</button>
+                
+                <div class="divider">
+                    <span>or</span>
+                </div>
+                
+                <button onclick="showPage('register')" class="secondary-btn">Register New Student</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- REGISTRATION PAGE -->
+    <div id="register" class="page">
+        <div class="page-content">
+            <div class="dashboard-header">
+                <h1>Unified Registration Portal</h1>
+                <p class="subtitle">Create your account to access all virtual lab systems</p>
+            </div>
+            
+            <div class="card">
+                <input id="regStudentId" type="text" placeholder="University ID" />
+                <input id="regStudentName" type="text" placeholder="Full Name" />
+                
+                <!-- Faculty select -->
+                <div class="input-group">
+                    <select id="regFaculty" onchange="updateDepartments()">
+                        <option value="">Select Faculty</option>
+                        <option value="Engineering">Faculty of Engineering</option>
+                        <option value="Medicine">Faculty of Medicine</option>
+                        <option value="Computers">Faculty of Computers & Information</option>
+                    </select>
+                </div>
+
+                <!-- Department select -->
+                <div class="input-group">
+                    <select id="regDepartment">
+                        <option value="">Select Department</option>
+                    </select>
+                </div>
+
+                <input id="regPassword" type="password" placeholder="Create Password" />
+                <button onclick="registerStudent()" class="primary-btn">Register</button>
+                <button onclick="showPage('login')" class="secondary-btn">Back to Login</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SYSTEM SELECTION PAGE -->
+    <div id="systemSelection" class="page">
+        <div class="page-content">
+            <h1>Select Your Lab System</h1>
+            
+            <div class="dashboard-header">
+                <h2>Available Virtual Lab Systems</h2>
+                <p class="subtitle">Choose the system you want to access</p>
+            </div>
+            
+            <div id="systemsList" class="systems-container">
+                <!-- Systems will be loaded here -->
+
+
+            <!-- ===== LAB CATEGORIES + STATUS SECTION ===== -->
+            <div class="lab-categories-section">
+                <!-- Category Filter Pills -->
+                <div class="category-filter-container">
+                    <div class="filter-header">
+                        <span class="filter-icon">🔍</span>
+                        <h3>Browse by Category</h3>
+                        <span class="filter-badge">21 Labs</span>
+                    </div>
+                    
+                    <div class="category-pills">
+                        <button class="category-pill active" data-category="all">All Labs</button>
+                        <button class="category-pill" data-category="Windows">🪟 Windows</button>
+                        <button class="category-pill" data-category="Windows Server">🖥️ Windows Server</button>
+                        <button class="category-pill" data-category="Linux">🐧 Linux</button>
+                        <button class="category-pill" data-category="macOS">🍎 macOS</button>
+                        <button class="category-pill" data-category="Design">🎨 Design</button>
+                        <button class="category-pill" data-category="AI">🤖 AI & ML</button>
+                        <button class="category-pill" data-category="Cloud">☁️ Cloud</button>
+                        <button class="category-pill" data-category="Security">🔐 Security</button>
+                        <button class="category-pill" data-category="Database">🗄️ Database</button>
+                        <button class="category-pill" data-category="Network">🌐 Network</button>
+                        <button class="category-pill" data-category="GameDev">🎮 Game Dev</button>
+                    </div>
+                </div>
+                
+                <!-- Search and Status Bar -->
+                <div class="lab-status-bar">
+                    <div class="search-wrapper">
+                        <span class="search-icon">🔎</span>
+                        <input type="text" id="labSearchInput" class="lab-search-input" placeholder="Search by name, description, or usage...">
+                        <button class="search-clear-btn" id="searchClearBtn">✕</button>
+                    </div>
+                    
+                    <div class="status-indicators">
+                        <div class="status-item">
+                            <span class="status-dot available"></span>
+                            <span>Available</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-dot high-demand"></span>
+                            <span>High Demand</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-dot maintenance"></span>
+                            <span>Maintenance</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-dot new"></span>
+                            <span>New</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Results Summary -->
+                <div class="lab-results-summary">
+                    <span id="showingResults">Showing <strong>21</strong> of <strong>21</strong> labs</span>
+                    <div class="sort-options">
+                        <label for="sortLabs">Sort by:</label>
+                        <select id="sortLabs" class="sort-select">
+                            <option value="default">Default</option>
+                            <option value="name-asc">Name (A-Z)</option>
+                            <option value="name-desc">Name (Z-A)</option>
+                            <option value="specs-high">Highest Specs</option>
+                            <option value="specs-low">Lowest Specs</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== END LAB CATEGORIES + STATUS SECTION ===== -->
+
+
+
+
+
+            </div>
+            
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        <div class="team-footer">
+    <p class="signature">— Electronics & Communications Engineering Team —</p>
+    <p class="university">Tanta University, Egypt</p>
+</div>   
+        
+        </div>
+    </div>
+
+    <!-- HELPER PAGE -->
+    <div id="helper" class="page">
+        <div class="page-content">
+            <div class="about-container">
+                <button onclick="showPage('cover')" class="about-back-btn">← Back to Home</button>
+                
+                <div class="about-header">
+                    <h1>📚 Student Success Guide</h1>
+                    <p>Essential information for using the Virtual Lab System</p>
+                </div>
+
+                <div class="about-content">
+                    <!-- التسجيل والدخول -->
+                    <div class="about-card">
+                        <div class="icon">🔑</div>
+                        <h2>Registration & Login</h2>
+                        <div class="help-steps">
+                            <div class="step">
+                                <strong>Student ID Format</strong>
+                                <pre class="pre-text">
+• Must be 14 digits:   12345678
+• Professors: DR + 5 digits
+• Password: 6+ characters
+                                </pre>
+                            </div>
+                            <div class="step">
+                                <strong>First Time Access</strong>
+                                <pre class="pre-text">
+• Register with university ID
+• Select your faculty
+• Choose your department
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- اختيار اللاب -->
+                    <div class="about-card">
+                        <div class="icon">💻</div>
+                        <h2>Lab Selection Guide</h2>
+                        <div class="help-steps">
+                            <div class="step">
+                                <strong>For Programming</strong>
+                                <pre class="pre-text">
+• Linux Lab: Python, Java, C++
+• Windows Lab: .NET, Visual Studio
+                                </pre>
+                            </div>
+                            <div class="step">
+                                <strong>For Engineering</strong>
+                                <pre class="pre-text">
+• Networking: Cisco, Security
+• Electronics: MATLAB, Simulation
+                                </pre>
+                            </div>
+                            <div class="step">
+                                <strong>For Design</strong>
+                                <pre class="pre-text">
+• Graphics: Adobe Suite
+• 3D: Blender, AutoCAD
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- حل المشاكل -->
+                    <div class="about-card">
+                        <div class="icon">🔧</div>
+                        <h2>Quick Solutions</h2>
+                        <div class="help-steps">
+                            <div class="step">
+                                <strong>Login Problems</strong>
+                                <pre class="pre-text">
+• Check internet connection
+• Verify ID and password
+• Contact IT if issues persist
+                                </pre>
+                            </div>
+                            <div class="step">
+                                <strong>Connection Issues</strong>
+                                <pre class="pre-text">
+• Download new RDP file
+• Allow firewall access
+• Use university VPN
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- نصائح مهمة -->
+                    <div class="about-card">
+                        <div class="icon">💡</div>
+                        <h2>Important Tips</h2>
+                        <div class="help-steps">
+                            <div class="step">
+                                <strong>Save Your Work</strong>
+                                <pre class="pre-text">
+• Download files regularly
+• Lab resets after logout
+• Use cloud storage
+                                </pre>
+                            </div>
+                            <div class="step">
+                                <strong>Best Performance</strong>
+                                <pre class="pre-text">
+• Use wired connection
+• Close other applications
+• Schedule off-peak hours
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- الدعم -->
+                    <div class="about-card">
+                        <div class="icon">📞</div>
+                        <h2>Support & Contact</h2>
+                        <div class="help-steps">
+                            <div class="step">
+                                <strong>IT Support</strong>
+                                <pre class="pre-text">
+• Phone: +20 XXX XXX XXXX
+• Email: support@university.edu
+• Building A, Room 101
+                                </pre>
+                            </div>
+                            <div class="step">
+                                <strong>Support Hours</strong>
+                                <pre class="pre-text">
+• Sun-Thu: 8:00 AM - 8:00 PM
+• Emergency: 24/7 available
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- البرامج المتاحة -->
+                    <div class="about-card">
+                        <div class="icon">🛠️</div>
+                        <h2>Available Software</h2>
+                        <div class="help-steps">
+                            <div class="step">
+                                <strong>Development</strong>
+                                <pre class="pre-text">
+• VS Code, Eclipse, PyCharm
+• Git, Docker, Kubernetes
+                                </pre>
+                            </div>
+                            <div class="step">
+                                <strong>Engineering</strong>
+                                <pre class="pre-text">
+• MATLAB, AutoCAD, Multisim
+• Cisco Packet Tracer
+                                </pre>
+                            </div>
+                            <div class="step">
+                                <strong>Design</strong>
+                                <pre class="pre-text">
+• Adobe Photoshop, Illustrator
+• Blender, SketchUp
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-footer">
+                    <p class="signature">— Electronics & Communications Engineering Team —</p>
+                    <p class="university">Tanta University, Egypt</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateDepartments() {
+            const faculty = document.getElementById('regFaculty').value;
+            const deptSelect = document.getElementById('regDepartment');
+            deptSelect.innerHTML = '<option value="">Select Department</option>';
+
+            const departments = {
+                "Engineering": [
+                    "Electronics and Communications Engineering",
+                    "Computer Engineering",
+                    "Electrical Power Engineering",
+                    "Civil Engineering",
+                    "Mechanical Engineering",
+                    "Architecture Engineering"
+                ],
+                "Medicine": [
+                    "General Medicine",
+                    "Dentistry",
+                    "Pharmacy",
+                    "Nursing"
+                ],
+                "Computers": [
+                    "Computer Science",
+                    "Information Systems",
+                    "Software Engineering",
+                    "Artificial Intelligence"
+                ]
+            };
+
+            if (departments[faculty]) {
+                departments[faculty].forEach(dept => {
+                    const option = document.createElement('option');
+                    option.value = dept;
+                    option.textContent = dept;
+                    deptSelect.appendChild(option);
+                });
+            }
+        }
+    </script>
+<div class="toast-container"></div>
+    <script src="script.js"></script>
+    <!-- Theme Toggle Button -->
+    <button onclick="toggleLightMode()" class="theme-toggle-btn">☀️</button>
+</body>
+
+</html>

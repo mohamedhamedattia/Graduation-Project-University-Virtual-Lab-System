@@ -1,0 +1,168 @@
+/* ===== LIGHT MODE OVERRIDES ===== */
+/* Only changes background and text colors for light mode */
+/* All accent colors, gradients, and button styles remain exactly the same */
+
+body.light-mode {
+    /* ===== LIGHT MODE VARIABLES ===== */
+    /* Background colors - light variants */
+    --primary-bg: #ffffff;
+    --secondary-bg: #f5f7fa;
+    --card-bg: #ffffff;
+    
+    /* Text colors - dark for readability on light backgrounds */
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+}
+
+/* ===== BASE STYLES ===== */
+body.light-mode {
+    background: var(--primary-bg);
+    color: var(--text-primary);
+}
+
+/* ===== COVER PAGE ===== */
+body.light-mode #cover {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 50%, #ffffff 100%);
+}
+
+body.light-mode .subtitle {
+    color: var(--text-secondary);
+}
+
+/* ===== CARDS ===== */
+body.light-mode .card {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+body.light-mode .card-header p {
+    color: var(--text-secondary);
+}
+
+/* ===== INPUTS ===== */
+body.light-mode input {
+    background: var(--secondary-bg);
+    border: 2px solid rgba(0, 212, 255, 0.1);
+    color: var(--text-primary);
+}
+
+body.light-mode input::placeholder {
+    color: var(--text-secondary);
+}
+
+body.light-mode select {
+    background: var(--secondary-bg);
+    border: 2px solid rgba(0, 212, 255, 0.1);
+    color: var(--text-primary);
+}
+
+body.light-mode select option {
+    background: var(--secondary-bg);
+    color: var(--text-primary);
+}
+
+/* ===== DIVIDER ===== */
+body.light-mode .divider span {
+    background: var(--card-bg);
+    color: var(--text-secondary);
+}
+
+/* ===== ABOUT PAGE ===== */
+body.light-mode #about {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 50%, #ffffff 100%);
+}
+
+body.light-mode .about-header p {
+    color: var(--text-secondary);
+}
+
+body.light-mode .about-card {
+    background: var(--card-bg);
+    border: 2px solid rgba(167, 139, 250, 0.1);
+}
+
+body.light-mode .about-card p {
+    color: var(--text-primary);
+}
+
+body.light-mode .team-footer {
+    border-top: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+body.light-mode .university {
+    color: var(--text-secondary);
+}
+
+/* ===== SYSTEM SELECTION ===== */
+body.light-mode .dashboard-header p {
+    color: var(--text-secondary);
+}
+
+body.light-mode .system-card {
+    background: var(--card-bg);
+    border: 2px solid rgba(167, 139, 250, 0.1);
+}
+
+body.light-mode .system-card .specs {
+    background: rgba(0, 245, 212, 0.05);
+}
+
+/* ===== FOOTER NOTE ===== */
+body.light-mode .footer-note.clickable {
+    background: rgba(0, 245, 212, 0.05);
+    border: 1px solid rgba(0, 245, 212, 0.1);
+}
+
+/* ===== TOAST ===== */
+body.light-mode .toastify {
+    background: var(--card-bg) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid rgba(0, 212, 255, 0.1) !important;
+}
+
+body.light-mode .toast-close {
+    color: var(--text-secondary) !important;
+}
+
+
+/* ===============================
+   Footer Note – Light Mode
+   =============================== */
+
+body.light-mode .footer-note {
+    color: #1F3A3A;
+}
+
+body.light-mode .footer-note.clickable {
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 8px 16px;
+    border-radius: 18px;
+    background: rgba(31, 58, 58, 0.08);
+    border: 1px solid rgba(31, 58, 58, 0.25);
+    backdrop-filter: blur(8px);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #1F3A3A;
+    opacity: 0.95;
+    white-space: nowrap;
+    display: inline-block;
+    text-shadow: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.light-mode .footer-note.clickable:hover {
+    background: rgba(31, 58, 58, 0.12);
+    transform: translateX(-50%) scale(1.02);
+    box-shadow: 0 3px 12px rgba(31, 58, 58, 0.25);
+    border-color: #1F3A3A;
+    color: #1F3A3A;
+}
+
+
+
+
+
+
+

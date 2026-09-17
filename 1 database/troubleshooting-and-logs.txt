@@ -1,0 +1,136 @@
+[root@myserver ~]# docker volume ls
+DRIVER    VOLUME NAME
+local     mysql_data
+[root@myserver ~]# docker stop mysql
+docker rm mysql
+mysql
+mysql
+[root@myserver ~]# cd /opt/mywebsite/mysql/
+[root@myserver mysql]# docker run -d \
+  --name mysql \
+  --network app-network \
+  --restart unless-stopped \
+  -e MYSQL_ROOT_PASSWORD=rootpassword \
+  -e MYSQL_DATABASE=university_lab \
+  -e MYSQL_USER=user \
+  -e MYSQL_PASSWORD=password \
+  -v mysql_data:/var/lib/mysql \
+  -v /opt/mywebsite/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql \
+  mysql:8
+fb3dc834f3a0b1443d8516fe4cca982f7f909a3c8ccbe9d7c01402e7adedcc33
+[root@myserver mysql]# docker exec -it mysql mysql -u user -ppassword -e "USE university_lab; SHOW TABLES;"
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[root@myserver mysql]# docker stop mysql
+docker rm mysql
+docker volume rm mysql_data
+docker volume create mysql_data
+mysql
+mysql
+mysql_data
+mysql_data
+[root@myserver mysql]# docker run -d \
+  --name mysql \
+  --network app-network \
+  --restart unless-stopped \
+  -e MYSQL_ROOT_PASSWORD=rootpassword \
+  -e MYSQL_DATABASE=university_lab \
+  -e MYSQL_USER=user \
+  -e MYSQL_PASSWORD=password \
+  -v mysql_data:/var/lib/mysql \
+  -v /opt/mywebsite/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql \
+  mysql:8
+00b475ba864542b1a850b6d62b145707ef12a3372482759fb0ac0517b3a200db
+[root@myserver mysql]# docker exec -it mysql mysql -u user -ppassword -e "USE university_lab; SHOW TABLES;"
+mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+[root@myserver mysql]# docker ps
+CONTAINER ID   IMAGE                COMMAND                  CREATED          STATUS          PORTS                                             NAMES
+00b475ba8645   mysql:8              "docker-entrypoint.s…"   51 seconds ago   Up 51 seconds   3306/tcp, 33060/tcp                               mysql
+b7af6dc9507f   nginx:alpine         "/docker-entrypoint.…"   50 minutes ago   Up 11 minutes   80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp   frontend
+82c65e7ceae4   university-backend   "docker-entrypoint.s…"   54 minutes ago   Up 11 minutes   0.0.0.0:3443->3443/tcp, [::]:3443->3443/tcp       backend
+[root@myserver mysql]# docker logs mysql --tail=50
+2026-01-21 19:49:08+00:00 [Note] [Entrypoint]: Initializing database files
+2026-01-21T19:49:08.800939Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+2026-01-21T19:49:08.804596Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.4.7) initializing of server in progress as process 80
+2026-01-21T19:49:08.819469Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-01-21T19:49:09.325850Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-01-21T19:49:11.964430Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2026-01-21T19:49:17.361965Z 0 [System] [MY-015018] [Server] MySQL Server Initialization - end.
+2026-01-21 19:49:17+00:00 [Note] [Entrypoint]: Database files initialized
+2026-01-21 19:49:17+00:00 [Note] [Entrypoint]: Starting temporary server
+2026-01-21T19:49:17.435030Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+2026-01-21T19:49:17.745310Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.4.7) starting as process 125
+2026-01-21T19:49:17.771452Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-01-21T19:49:18.347150Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-01-21T19:49:18.940794Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2026-01-21T19:49:18.940944Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2026-01-21T19:49:18.946793Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2026-01-21T19:49:19.016304Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Socket: /var/run/mysqld/mysqlx.sock
+2026-01-21T19:49:19.017274Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.4.7'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  MySQL Community Server - GPL.
+2026-01-21 19:49:19+00:00 [Note] [Entrypoint]: Temporary server started.
+'/var/lib/mysql/mysql.sock' -> '/var/run/mysqld/mysqld.sock'
+Warning: Unable to load '/usr/share/zoneinfo/iso3166.tab' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/leap-seconds.list' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/leapseconds' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/tzdata.zi' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/zone.tab' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/zone1970.tab' as time zone. Skipping it.
+2026-01-21 19:49:30+00:00 [Note] [Entrypoint]: Creating database university_lab
+2026-01-21 19:49:30+00:00 [Note] [Entrypoint]: Creating user user
+2026-01-21 19:49:30+00:00 [Note] [Entrypoint]: Giving user user access to schema university_lab
+
+2026-01-21 19:49:30+00:00 [Note] [Entrypoint]: /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/init.sql
+
+
+2026-01-21 19:49:31+00:00 [Note] [Entrypoint]: Stopping temporary server
+2026-01-21T19:49:31.282704Z 14 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.4.7).
+2026-01-21T19:49:32.274096Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.4.7)  MySQL Community Server - GPL.
+2026-01-21T19:49:32.274175Z 0 [System] [MY-015016] [Server] MySQL Server - end.
+2026-01-21 19:49:32+00:00 [Note] [Entrypoint]: Temporary server stopped
+
+2026-01-21 19:49:32+00:00 [Note] [Entrypoint]: MySQL init process done. Ready for start up.
+
+2026-01-21T19:49:32.337023Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+2026-01-21T19:49:32.648159Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.4.7) starting as process 1
+2026-01-21T19:49:32.661583Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-01-21T19:49:33.109279Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-01-21T19:49:33.666468Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2026-01-21T19:49:33.666564Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2026-01-21T19:49:33.670883Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2026-01-21T19:49:33.740740Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2026-01-21T19:49:33.740864Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.4.7'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+[root@myserver mysql]# docker exec -it mysql mysql -u user -ppassword -h 127.0.0.1 -P 3306 -e "USE university_lab; SHOW TABLES;"
+mysql: [Warning] Using a password on the command line interface can be insecure.
++--------------------------+
+| Tables_in_university_lab |
++--------------------------+
+| activities               |
+| students                 |
+| system_access            |
++--------------------------+
+[root@myserver mysql]# docker exec -it mysql mysql -u user -ppassword -h 127.0.0.1 -P 3306 -e "USE university_lab; SELECT * FROM students;"
+mysql: [Warning] Using a password on the command line interface can be insecure.
++----+----------------+---------------+-------------+--------------------------------------------+--------------------------------------------------------------+---------------------+---------------------+-------------+---------------------+---------------------+
+| id | studentId      | name          | faculty     | department                                 | password                                                     | registrationDate    | lastLogin           | accessCount | created_at          | updated_at          |
++----+----------------+---------------+-------------+--------------------------------------------+--------------------------------------------------------------+---------------------+---------------------+-------------+---------------------+---------------------+
+|  1 | 2023001        | Ahmed Mohamed | Engineering | Electronics and Communications Engineering | $2a$10$examplehashedpassword                                 | 2026-01-21 19:49:30 | NULL                |           0 | 2026-01-21 19:49:30 | 2026-01-21 19:49:30 |
+|  2 | 2023002        | Mona Ali      | Medicine    | General Medicine                           | $2a$10$examplehashedpassword                                 | 2026-01-21 19:49:30 | NULL                |           0 | 2026-01-21 19:49:30 | 2026-01-21 19:49:30 |
+|  3 | 2023003        | Omar Hassan   | Computers   | Computer Science                           | $2a$10$examplehashedpassword                                 | 2026-01-21 19:49:30 | NULL                |           0 | 2026-01-21 19:49:30 | 2026-01-21 19:49:30 |
+|  4 | 11111111111111 | ????          | Engineering | Computer Engineering                       | $2a$10$vQMaDl1Pmj0.rLxhsQ.6XeI1ZbXu1nXnFI.PEQqBBnB777myUqEB6 | 2026-01-21 19:52:43 | 2026-01-21 19:53:11 |           2 | 2026-01-21 19:52:43 | 2026-01-21 19:53:11 |
++----+----------------+---------------+-------------+--------------------------------------------+--------------------------------------------------------------+---------------------+---------------------+-------------+---------------------+---------------------+
+[root@myserver mysql]# ^C
+[root@myserver mysql]# docker exec -it backend sh
+/app # mysql -h $DB_HOST -P $DB_PORT -u $DB_USER -p$DB_PASSWORD $DB_NAME -e "SELECT * FROM students;"
+sh: mysql: not found
+/app # 
+/app # exit
+[root@myserver mysql]# docker exec -it mysql mysql -u user -ppassword -h 127.0.0.1 -P 3306 -e "USE university_lab; SELECT * FROM students;"
+mysql: [Warning] Using a password on the command line interface can be insecure.
++----+----------------+---------------+-------------+--------------------------------------------+--------------------------------------------------------------+---------------------+---------------------+-------------+---------------------+---------------------+
+| id | studentId      | name          | faculty     | department                                 | password                                                     | registrationDate    | lastLogin           | accessCount | created_at          | updated_at          |
++----+----------------+---------------+-------------+--------------------------------------------+--------------------------------------------------------------+---------------------+---------------------+-------------+---------------------+---------------------+
+|  1 | 2023001        | Ahmed Mohamed | Engineering | Electronics and Communications Engineering | $2a$10$examplehashedpassword                                 | 2026-01-21 19:49:30 | NULL                |           0 | 2026-01-21 19:49:30 | 2026-01-21 19:49:30 |
+|  2 | 2023002        | Mona Ali      | Medicine    | General Medicine                           | $2a$10$examplehashedpassword                                 | 2026-01-21 19:49:30 | NULL                |           0 | 2026-01-21 19:49:30 | 2026-01-21 19:49:30 |
+|  3 | 2023003        | Omar Hassan   | Computers   | Computer Science                           | $2a$10$examplehashedpassword                                 | 2026-01-21 19:49:30 | NULL                |           0 | 2026-01-21 19:49:30 | 2026-01-21 19:49:30 |
+|  4 | 11111111111111 | ????          | Engineering | Computer Engineering                       | $2a$10$vQMaDl1Pmj0.rLxhsQ.6XeI1ZbXu1nXnFI.PEQqBBnB777myUqEB6 | 2026-01-21 19:52:43 | 2026-01-21 20:03:04 |           3 | 2026-01-21 19:52:43 | 2026-01-21 20:03:03 |
++----+----------------+---------------+-------------+------------------------

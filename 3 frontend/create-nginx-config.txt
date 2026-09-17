@@ -1,0 +1,38 @@
+1 
+
+
+nano /opt/mywebsite/nginx.conf
+  
+
+
+
+
+
+2 
+
+
+
+server {
+    listen 443 ssl;
+    server_name 192.168.2.146;
+
+    ssl_certificate /etc/ssl/certs/server.cert;
+    ssl_certificate_key /etc/ssl/private/server.key;
+
+    root /usr/share/nginx/html;
+    index index.html;
+
+    location /api/ {
+        proxy_pass https://backend:3443/;
+        proxy_ssl_verify off;
+    }
+
+    location / {
+        try_files $uri /index.html;
+    }
+}
+
+
+
+
+
